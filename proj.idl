@@ -1,0 +1,9 @@
+namespace SFMLStuff
+{
+    [default_interface]
+    runtimeclass proj : Windows.UI.Xaml.Controls.Page
+    {
+        proj();
+        Int32 MyProperty;
+    }
+}

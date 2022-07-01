@@ -1,30 +1,29 @@
 #pragma once
 #include <SFML/System.hpp>
+#include <tuple>
+#include <iostream>
 
-/* Serves as a base class for all te entities in the game, walls, characters, enemies etc.
+/* Serves as a base class for all the entities in the game, walls, characters, enemies etc.
 */
-class Object {
+class Entity {
 
 public:
-	//define hitboxes
-	float width;
-	float height;
-	//some objects can move
-	float speed;
+	//define hitboxes and movement
+	int width, height, speed;
+	int speedCount;
+	char direction;
 
-	sf::Vector2f position;
+
+	std::tuple<int, int> position;
 
 	//any inheritor of object will need to be able to check for collisions.
-	bool isColliding(Object blocker) {
-		if (position.x < (blocker.position.x + blocker.width) && position.x > blocker.position.x)
-			if (position.y < (blocker.position.y + blocker.height) && position.y > blocker.position.y)
+	bool isColliding(Entity &blocker) {
+
+		if (std::get<0>(blocker.position) == std::get<0>(this->position))
+			if (std::get<1>(blocker.position) == std::get<1>(this->position))
 				return true;
 
-			else if (blocker.position.x < (position.x + blocker.width) && blocker.position.x > position.x)
-				if (blocker.position.y < (position.y + blocker.height) && blocker.position.y > position.y)
-					return true;
-			else
-				return false;
+		return false;
 	}
 
 };

@@ -38,5 +38,16 @@
     <ClInclude Include="wall.hpp">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="controller.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="proj.hpp">
+      <Filter>Header Files\Entities</Filter>
+    </Page>
   </ItemGroup>
 </Project>
